@@ -311,15 +311,15 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0A1931] via-[#0A1931] to-[#185ADB]/10 text-white">
-      <div className="flex h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-[#0A1931] via-[#0A1931] to-[#185ADB]/10 text-white flex flex-col">
+      <div className="flex flex-1">
         {/* Sidebar */}
         <div className="flex-shrink-0">
           <Sidebar onFilterChange={handleFilterChange} />
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className="flex-1 flex flex-col">
           {/* Hero Section */}
           <section className="relative bg-gradient-to-r from-[#0A1931] via-[#185ADB]/20 to-[#0A1931] border-b border-[#185ADB]/30 overflow-hidden">
             {/* Background Pattern */}
@@ -437,7 +437,12 @@ const Home = () => {
           </section>
 
           {/* Resource Grid */}
-          <main className="flex-1 overflow-y-auto bg-gradient-to-b from-[#0A1931]/30 to-[#0A1931]">
+          <main
+            className="flex-1 overflow-y-auto bg-gradient-to-b from-[#0A1931]/30 to-[#0A1931]"
+            style={{
+              height: "calc(100vh - 370px)", // Adjust 370px to match your hero+search height
+            }}
+          >
             <ResourceGrid
               resources={filteredResources}
               isLoading={isLoading}
